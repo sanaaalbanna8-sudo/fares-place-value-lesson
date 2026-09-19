@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>فارس معيقل الخليفات | تمثيل الأعداد ضمن منزلتين</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;900&family=Fredoka:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-bubbles" aria-hidden="true"></div>
+  <div class="world-decor" aria-hidden="true">
+    <span class="deco-sun">☀️</span>
+    <span class="deco-rainbow">🌈</span>
+    <span class="deco-star s1">⭐</span>
+    <span class="deco-star s2">✨</span>
+    <span class="deco-star s3">🌟</span>
+    <span class="float-cube c-red"></span>
+    <span class="float-cube c-blue"></span>
+    <span class="float-cube c-green"></span>
+    <span class="float-cube c-purple"></span>
+    <span class="float-cube c-orange"></span>
+    <span class="float-cube c-cyan"></span>
+    <span class="deco-cloud cl1"></span>
+    <span class="deco-cloud cl2"></span>
+  </div>
+  <div class="confetti-layer" id="confetti" aria-hidden="true"></div>
+
+  <!-- ظهور سبايدر مان عند الضغط -->
+  <div id="spideyPop" class="spidey-pop" aria-live="polite" hidden>
+    <div class="spidey-pop-card">
+      <div class="spidey-pop-hero" aria-hidden="true">
+        <div class="spidey-head"></div>
+        <div class="spidey-body"></div>
+      </div>
+      <p class="spidey-pop-text" id="spideyPopText">أحسنت!</p>
+    </div>
+  </div>
+
+  <header class="top-bar">
+    <div class="brand">
+      <span class="brand-star">★</span>
+      <div class="brand-text">
+        <span class="brand-student">درس فارس الذهبي</span>
+        <span class="brand-lesson">الدرس 3: تمثيل الأعداد ضمن منزلتين</span>
+      </div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <div class="slide-counter" dir="ltr"><span id="slideNum">1</span> / <span id="slideTotal">14</span></div>
+  </header>
+  <div class="lesson-strip" aria-hidden="false">
+    <span>📚 الدرس 3: تمثيل الأعداد ضمن منزلتين</span>
+  </div>
+
+  <main id="deck" class="deck">
+    <!-- 1: Welcome -->
+    <section class="slide active" data-title="ترحيب">
+      <div class="hero-layout">
+        <div class="hero-text">
+          <p class="eyebrow bounce-in">مرحباً يا أصدقاء!</p>
+          <h1 class="student-name glow-text">فارس معيقل الخليفات</h1>
+          <p class="hero-sub">يقدّم لكم درسًا رائعًا عن <strong>الآحاد</strong> و<strong>العشرات</strong></p>
+          <p class="class-info">الصف الأول (ب) — المعلمة: هيا المساعيد</p>
+          <div class="badge-row">
+            <span class="badge">الصف الأول (ب)</span>
+            <span class="badge badge-alt">المعلمة هيا المساعيد</span>
+            <span class="badge badge-pink">الدرس 3</span>
+          </div>
+          <button class="btn mega" data-next>يلا نبدأ المغامرة! ▶</button>
+        </div>
+        <div class="hero-photo-wrap float-y">
+          <img src="assets/fares-hero.png" alt="فارس معيقل الخليفات" class="hero-photo" />
+          <div class="photo-caption">بطل درسنا اليوم ⭐</div>
+          <div class="spiderman float-x" aria-hidden="true">
+            <div class="spidey-head"></div>
+            <div class="spidey-body"></div>
+            <div class="spidey-web"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2: Goals -->
+    <section class="slide" data-title="أهداف">
+      <h2 class="slide-title">🎯 ماذا سنتعلم اليوم؟</h2>
+      <div class="goal-grid">
+        <article class="goal-card c2 pop-in">
+          <div class="goal-icon">🔟</div>
+          <h3>العشرات</h3>
+          <p>10 مكعبات فوق بعض = عشرة واحدة</p>
+        </article>
+        <article class="goal-card c1 pop-in">
+          <div class="goal-icon">1️⃣</div>
+          <h3>الآحاد</h3>
+          <p>المكعبات الصغيرة وحدها = آحاد</p>
+        </article>
+        <article class="goal-card c3 pop-in">
+          <div class="goal-icon">🧱</div>
+          <h3>التمثيل</h3>
+          <p>نمثّل أي عدد من منزلتين بالمكعبات</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3: Explore 36 -->
+    <section class="slide" data-title="أستكشف">
+      <h2 class="slide-title">🔍 أستكشف: العدد 36</h2>
+      <p class="prompt">كم عشرة وكم واحد نحتاج لتمثيل العدد <span class="num-chip">36</span>؟</p>
+      <div class="demo-stage">
+        <div class="block-scene" id="explore36">
+          <div class="tens-group" data-tens="3"></div>
+          <div class="ones-group" data-ones="6"></div>
+        </div>
+        <div class="labels-row">
+          <div class="place-label tens-label">عشرات: <b>3</b></div>
+          <div class="place-label ones-label">آحاد: <b>6</b></div>
+        </div>
+      </div>
+      <button class="btn" id="replay36">شاهد المكعبات تتكوّن مرة أخرى ✨</button>
+    </section>
+
+    <!-- 4: Learn 73 with wow stacking -->
+    <section class="slide" data-title="أتعلم">
+      <h2 class="slide-title">📚 أتعلم: العدد 73</h2>
+      <div class="learn-grid">
+        <div class="digit-explain">
+          <div class="big-number">
+            <span class="digit tens-digit" id="d7">7</span>
+            <span class="digit ones-digit" id="d3">3</span>
+          </div>
+          <p class="explain-line"><span class="tens-digit">7</span> ← عشرات</p>
+          <p class="explain-line"><span class="ones-digit">3</span> ← آحاد</p>
+          <button class="btn wow" id="build73">ابنِ العشرات بطريقة مذهلة! 🚀</button>
+        </div>
+        <div class="wow-stage">
+          <div id="stackArena" class="stack-arena"></div>
+          <div class="labels-row">
+            <div class="place-label tens-label">عشرات: <b id="liveTens">0</b></div>
+            <div class="place-label ones-label">آحاد: <b id="liveOnes">0</b></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5: Talk 49 -->
+    <section class="slide" data-title="أتحدث">
+      <h2 class="slide-title">🗣️ أتحدث مع صديقي</h2>
+      <p class="prompt">كيف أستخدم النماذج لتمثيل العدد <span class="num-chip">49</span>؟</p>
+      <div class="talk-box">
+        <button class="btn" id="show49">أظهر الحل ✨</button>
+        <div id="answer49" class="hidden-answer">
+          <div class="block-scene compact" id="scene49"></div>
+          <p class="answer-text">4 عشرات + 9 آحاد = <strong>49</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6: Type exercise 52 -->
+    <section class="slide exercise" data-title="أكتب 52">
+      <h2 class="slide-title">✍️ تمرين 1: اكتب الآحاد والعشرات</h2>
+      <p class="prompt">مثّل العدد <span class="num-chip big">52</span> ثم اكتب</p>
+      <div class="exercise-panel">
+        <div class="preview-blocks" data-auto-blocks="5,2"></div>
+        <div class="inputs-row">
+          <label>عشرات <input type="number" min="0" max="9" class="num-input" data-check-tens="5" /></label>
+          <label>آحاد <input type="number" min="0" max="9" class="num-input" data-check-ones="2" /></label>
+        </div>
+        <div class="btn-row">
+          <button class="btn check-btn">تحقق ✓</button>
+          <button class="btn ghost reset-exercise" type="button">إعادة 🔄</button>
+        </div>
+        <p class="feedback"></p>
+      </div>
+    </section>
+
+    <!-- 7: Type 31 + drag build -->
+    <section class="slide exercise" data-title="اسحب 31">
+      <h2 class="slide-title">🖐️ تمرين 2: اسحب وأفلت — العدد 31</h2>
+      <p class="prompt">اسحب العشرات والآحاد إلى الصندوق السحابي</p>
+      <div class="drag-lab" data-target-tens="3" data-target-ones="1">
+        <div class="palette">
+          <div class="drag-item ten-rod" draggable="true" data-kind="ten">عشرة</div>
+          <div class="drag-item one-cube" draggable="true" data-kind="one">واحد</div>
+        </div>
+        <div class="drop-zone cloud" data-drop>
+          <span class="hint">أسقط هنا</span>
+        </div>
+        <div class="drag-counters">عشرات: <b data-count-tens>0</b> | آحاد: <b data-count-ones>0</b></div>
+        <div class="btn-row">
+          <button class="btn check-drag">تحقق ✓</button>
+          <button class="btn ghost reset-drag">إعادة 🔄</button>
+        </div>
+        <p class="feedback"></p>
+      </div>
+    </section>
+
+    <!-- 8: Type/build 44 -->
+    <section class="slide exercise" data-title="اسحب 44">
+      <h2 class="slide-title">🖐️ تمرين 3: ابنِ العدد 44</h2>
+      <div class="drag-lab" data-target-tens="4" data-target-ones="4">
+        <div class="palette">
+          <div class="drag-item ten-rod" draggable="true" data-kind="ten">عشرة</div>
+          <div class="drag-item one-cube" draggable="true" data-kind="one">واحد</div>
+        </div>
+        <div class="drop-zone cloud" data-drop>
+          <span class="hint">أسقط هنا</span>
+        </div>
+        <div class="drag-counters">عشرات: <b data-count-tens>0</b> | آحاد: <b data-count-ones>0</b></div>
+        <div class="btn-row">
+          <button class="btn check-drag">تحقق ✓</button>
+          <button class="btn ghost reset-drag">إعادة 🔄</button>
+        </div>
+        <p class="feedback"></p>
+      </div>
+    </section>
+
+    <!-- 9: Circle correct model -->
+    <section class="slide exercise" data-title="أحوط 14">
+      <h2 class="slide-title">⭕ تمرين 4: أحوط النموذج الصحيح</h2>
+      <p class="prompt">أي نموذج يمثّل العدد <span class="num-chip">14</span>؟</p>
+      <div class="choice-row" data-correct="a">
+        <button class="choice-card" data-choice="a">
+          <div class="mini-blocks" data-blocks="1,4"></div>
+          <span>أ</span>
+        </button>
+        <button class="choice-card" data-choice="b">
+          <div class="mini-blocks" data-blocks="4,1"></div>
+          <span>ب</span>
+        </button>
+      </div>
+      <div class="btn-row center">
+        <button class="btn ghost reset-choice" type="button">إعادة 🔄</button>
+      </div>
+      <p class="feedback"></p>
+    </section>
+
+    <!-- 10: Circle 32 -->
+    <section class="slide exercise" data-title="أحوط 32">
+      <h2 class="slide-title">⭕ تمرين 5: أحوط النموذج الصحيح</h2>
+      <p class="prompt">أي نموذج يمثّل العدد <span class="num-chip">32</span>؟</p>
+      <div class="choice-row" data-correct="b">
+        <button class="choice-card" data-choice="a">
+          <div class="mini-blocks" data-blocks="2,3"></div>
+          <span>أ</span>
+        </button>
+        <button class="choice-card" data-choice="b">
+          <div class="mini-blocks" data-blocks="3,2"></div>
+          <span>ب</span>
+        </button>
+      </div>
+      <div class="btn-row center">
+        <button class="btn ghost reset-choice" type="button">إعادة 🔄</button>
+      </div>
+      <p class="feedback"></p>
+    </section>
+
+    <!-- 11: Match / connect -->
+    <section class="slide exercise" data-title="أصل">
+      <h2 class="slide-title">🔗 تمرين 6: أوصل النموذج بالعدد</h2>
+      <p class="prompt">اضغط نموذجًا ثم العدد المناسب، واكتب الآحاد والعشرات</p>
+      <div class="match-board">
+        <div class="match-col models">
+          <button class="match-item" data-id="m1" data-val="39"><div class="mini-blocks" data-blocks="3,9"></div></button>
+          <button class="match-item" data-id="m2" data-val="15"><div class="mini-blocks" data-blocks="1,5"></div></button>
+          <button class="match-item" data-id="m3" data-val="41"><div class="mini-blocks" data-blocks="4,1"></div></button>
+        </div>
+        <svg class="match-lines" id="matchSvg"></svg>
+        <div class="match-col numbers">
+          <button class="match-num" data-val="15">15</button>
+          <button class="match-num" data-val="39">39</button>
+          <button class="match-num" data-val="41">41</button>
+        </div>
+      </div>
+      <div class="match-inputs">
+        <div class="match-row" data-for="39">39 → عشرات <input type="number" data-mt="3" /> آحاد <input type="number" data-mo="9" /></div>
+        <div class="match-row" data-for="15">15 → عشرات <input type="number" data-mt="1" /> آحاد <input type="number" data-mo="5" /></div>
+        <div class="match-row" data-for="41">41 → عشرات <input type="number" data-mt="4" /> آحاد <input type="number" data-mo="1" /></div>
+      </div>
+      <div class="btn-row center">
+        <button class="btn" id="checkMatch">تحقق من التوصيل ✓</button>
+        <button class="btn ghost" id="resetMatch" type="button">إعادة 🔄</button>
+      </div>
+      <p class="feedback" id="matchFeedback"></p>
+    </section>
+
+    <!-- 12: Find the error -->
+    <section class="slide exercise" data-title="خطأ سلمى">
+      <h2 class="slide-title">🕵️ تمرين 7: ابحث عن الخطأ</h2>
+      <p class="prompt">أرادت سلمى تمثيل العدد <span class="num-chip">32</span>… ما الخطأ؟</p>
+      <div class="error-lab">
+        <div class="wrong-demo">
+          <p>تمثيل سلمى:</p>
+          <div class="mini-blocks large" data-blocks="2,3"></div>
+          <p class="wrong-tag">هذا = 23 ❌</p>
+        </div>
+        <div class="fix-fix">
+          <p>صحّح التمثيل للعدد 32:</p>
+          <div class="drag-lab compact" data-target-tens="3" data-target-ones="2">
+            <div class="palette">
+              <div class="drag-item ten-rod" draggable="true" data-kind="ten">عشرة</div>
+              <div class="drag-item one-cube" draggable="true" data-kind="one">واحد</div>
+            </div>
+            <div class="drop-zone" data-drop><span class="hint">التصحيح هنا</span></div>
+            <div class="drag-counters">عشرات: <b data-count-tens>0</b> | آحاد: <b data-count-ones>0</b></div>
+            <div class="btn-row">
+              <button class="btn check-drag">تحقق ✓</button>
+              <button class="btn ghost reset-drag">إعادة 🔄</button>
+            </div>
+            <p class="feedback"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13: Create your number -->
+    <section class="slide exercise" data-title="اختر عددًا">
+      <h2 class="slide-title">🎨 تمرين 8: اختر عددك!</h2>
+      <p class="prompt">اكتب عددًا من منزلتين وابنِه بالمكعبات</p>
+      <div class="create-lab">
+        <label>عددي: <input type="number" id="myNumber" min="10" max="99" placeholder="مثلاً 27" /></label>
+        <div class="create-asks">
+          <label>كم عشرة؟ <input type="number" id="myTens" min="0" max="9" /></label>
+          <label>كم واحد؟ <input type="number" id="myOnes" min="0" max="9" /></label>
+        </div>
+        <div class="drag-lab" data-dynamic="1">
+          <div class="palette">
+            <div class="drag-item ten-rod" draggable="true" data-kind="ten">عشرة</div>
+            <div class="drag-item one-cube" draggable="true" data-kind="one">واحد</div>
+          </div>
+          <div class="drop-zone cloud" data-drop><span class="hint">ارسم بالمكعبات هنا</span></div>
+          <div class="drag-counters">عشرات: <b data-count-tens>0</b> | آحاد: <b data-count-ones>0</b></div>
+        </div>
+        <div class="btn-row">
+          <button class="btn" id="checkCreate">تحقق ✓</button>
+          <button class="btn ghost" id="resetCreate" type="button">إعادة 🔄</button>
+        </div>
+        <p class="feedback" id="createFeedback"></p>
+      </div>
+    </section>
+
+    <!-- 14: Finale -->
+    <section class="slide finale" data-title="النهاية">
+      <div class="finale-layout">
+        <div class="finale-photo">
+          <img src="assets/fares-hero.png" alt="فارس معيقل الخليفات" />
+          <div class="crown">👑</div>
+        </div>
+        <div class="finale-text">
+          <h2 class="student-name glow-text">فارس معيقل الخليفات</h2>
+          <p class="class-info">الصف الأول (ب) — المعلمة: هيا المساعيد</p>
+          <p class="finale-msg">أحسنتم! أنهينا درس تمثيل الأعداد ضمن منزلتين 🌟</p>
+          <div class="score-box">نجومك: <span id="starScore">0</span> ⭐</div>
+          <div class="fares-voice-box" id="faresVoiceBox">
+            <button class="btn mega voice-btn" id="playVoice">🎙️ اسمع رسالة فارس</button>
+            <div class="eq" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+          <button class="btn mega" id="replayAll">أعد الدرس من البداية 🔄</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="nav-bar">
+    <button class="nav-btn" id="prevBtn" title="السابق">→ السابق</button>
+    <button class="nav-btn sound-btn" id="soundBtn" title="الصوت">🔊</button>
+    <button class="nav-btn primary" id="nextBtn" title="التالي">التالي ←</button>
+    <p class="funny-copyright" title="حقوق فارس الذهبية 👑">
+      © جميع الحقوق محفوظة… ويا ويلكم لو نسختوا بدون إذن فارس معيقل الخليفات 2026 🕸️😂
+    </p>
+  </nav>
+
+  <audio id="bgMusic" loop preload="auto"></audio>
+  <audio id="faresVoice" src="assets/fares-voice.mp3" preload="auto"></audio>
+  <script src="app.js"></script>
+</body>
+</html>
